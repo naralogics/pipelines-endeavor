@@ -1,0 +1,65 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/recommendation-requests.csv
+  query_dataframe:
+    config:
+      select_columns: ["client_node_id"]
+  slugify_values:
+    config:
+      columns: [ client_node_id ]
+  submit_node_requests:
+    config:
+      category: cereal
+      count: 50
+      include_weight: True
+      label:
+        experiment: cereal_community_learning_v2
+  merge_dataframes:
+    config:
+      left_on: ["unique_request_id"]
+      right_on: ["unique_request_id"]
+      suffixes: ["_input", "_output"]
+  assign_community:
+    config:
+      # you can prefix you community assignments with anything you want
+      # label_prefix: "2021-12-31"
+      edges:
+        src_node: client_node_id_input
+        dst_node: client_node_id_output
+        weight_field_name: normalized_weight
+        attributes:
+          - client_node_id_input
+      tuning:
+        expressions:
+          - "rank <= 10"
+        hyperparameters:
+          resolution: 5
+      visualize_communities_path: ~/Downloads/
+  select_candidates:
+    config:
+      select_columns: ['candidate_node_id']
+  collect_group_profile:
+    config:
+      category: cereal
+      settinggroup_id: default
+      count: 100
+      include_weight: True
+      node_id_type: client_node_id
+      label:
+        experiment: cereal_community_profiling_v2
+      include_grouped_profile: all
+  generate_nodes_from_profiles:
+    config:
+      community_column_name: community_id
+      node_name_prefix: community
+  create_heatmap:
+    config:
+      index_name: ["property_name", "property_value_name"]
+      title: "Cereal Community DNA"
+      y_axis_label: "Property Value Name"
+      x_axis_label: "Community Label"
+    outputs:
+      result:
+        format: html
+        filename: "community_dna.html"

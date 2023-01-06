@@ -1,0 +1,52 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+jupyter = "*"
+pytest = "*"
+pytest-cov = "*"
+pre-commit = "*"
+# pytest has a couple of Windows-only dependencies, and we explicitly pin them
+# here so our Windows users are not left out when they run `pipenv sync --dev`.
+atomicwrites = {version = "*", platform_system = "== 'Windows'"}
+colorama = {version = "*", platform_system = "== 'Windows'"}
+
+[packages]
+s3fs = "==2022.7.1"
+aiobotocore = {version = "*", extras = ["boto3"]}
+dagster = "*"
+dagster-aws = "*"
+dagit = "*"
+pandas = "==1.4.4"
+flask = "*"
+numpy = "*"
+importlib-metadata = "*"
+pillow = "*"
+dagster-graphql = "*"
+dagster-pandas = "*"
+mergedeep = "*"
+typing-extensions = "*"
+dask = "*"
+swifter = "*"
+dagster-mysql = "*"
+jupyterlab = "*"
+uvloop = {version = "*", platform_system = "!= 'Windows'"}
+nbconvert = "*"
+sentry-sdk = "*"
+python-louvain = "*"
+gitpython = "*"
+pearl = {editable = true, ref = "main", git = "ssh://git@github.com/naralogics/pipelines-common.git"}
+
+[requires]
+python_version = "3.10"
+
+[pipenv]
+# The patch release for PyYAML requires us to resolve prereleases.
+allow_prereleases = false
+
+[scripts]
+check-diff = "pre-commit run --hook-stage push --show-diff-on-failure"
+check-all = "pre-commit run --hook-stage push"
+check-fast = "pre-commit run"

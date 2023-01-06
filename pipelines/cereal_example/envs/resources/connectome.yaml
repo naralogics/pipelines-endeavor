@@ -1,0 +1,187 @@
+resources:
+  connectome_definition:
+    config:
+      category_name: cereal
+      version_tag: "version-1.0"
+      description: "A sample conectome with cereal data"
+      properties:
+        calories:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: calories
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: TEXT
+        calories_segment:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: calories_segment
+          parent_property_name: calories
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        carbohydrates:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: carbohydrates
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        cups:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: cups
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        fat:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: fat
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        fiber:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: fiber
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        manufacturer:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: manufacturer
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        name:
+          allowable_set: null
+          cardinality: {}
+          content: true
+          display_name: name
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: TEXT
+        potassium:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: potassium
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        protein:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: protein
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        rating:
+          allowable_set: null
+          cardinality: {}
+          content: true
+          display_name: rating
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: TEXT
+        rating_segment:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: rating_segment
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        shelf:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: shelf
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        sodium:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: sodium
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        sugars:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: sugars
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        type:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: type
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        vitamins:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: vitamins
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI
+        weight:
+          allowable_set: null
+          cardinality: {}
+          content: false
+          display_name: weight
+          parent_property_name: ''
+          precision: null
+          property_type: string
+          separator: null
+          value_type: MULTI

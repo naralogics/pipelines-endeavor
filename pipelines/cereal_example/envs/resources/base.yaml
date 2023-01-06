@@ -1,0 +1,12 @@
+resources:
+  engine:
+    config:
+      engine_host: { env: ENV_ENGINE_URL }
+      engine_client_id: { env: ENV_ENGINE_CLIENT_ID }
+      engine_client_secret: { env: ENV_ENGINE_CLIENT_SECRET }
+      engine_incremental_is_on: { env: ENV_API_INCREMENTAL_ON }
+      data_path: s3://nara-example/engine/emitter/transformed-events/
+loggers:
+  console:
+    config:
+      log_level: DEBUG

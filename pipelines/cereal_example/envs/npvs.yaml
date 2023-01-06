@@ -1,0 +1,9 @@
+solids:
+  write_npv_weights:
+    inputs:
+      destination:
+        category_tag: cereal
+        setting_group: default
+      rpvs:
+        csv:
+          path: file.csv  ###  Note: you need to put an absolute reference to this location npvs.csv file in the data dir

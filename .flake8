@@ -1,0 +1,6 @@
+# We'll move this to pyproject.toml when https://gitlab.com/pycqa/flake8/issues/428 is done.
+[flake8]
+ignore = E203, E266, E501, W503, F723
+max-line-length = 100
+max-complexity = 18
+select = B,C,E,F,W,T4

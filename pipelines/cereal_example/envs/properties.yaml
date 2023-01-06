@@ -1,0 +1,10 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/properties.csv
+  write_connectome_property_weight:
+    config:
+      setting_group:
+        category_tag: cereal
+        name: default
+      slugify_names: True

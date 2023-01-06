@@ -1,0 +1,12 @@
+solids:
+  coalesce_s3_files:
+    config:
+      file_extension: gz
+      input_bucket: nara-example
+      input_path: engine/emitter/events
+      output_bucket: nara-example
+      output_path: engine/emitter/coalesced-events
+      storage_mode: S3
+      # example of FS storage_mode usage
+      # input_path: /home/todd/nara-example/engine/emitter/events
+      # output_path: /home/todd/nara-example/engine/emitter/coalesced-events

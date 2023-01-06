@@ -1,0 +1,9 @@
+resources:
+  db:
+    config:
+      # The values for NARA database connection are given to the pipeline
+      # through environment variables set through Swarm.
+      mysql_host: { env: ENV_PLATFORM_DATABASE_HOST }
+      mysql_db_name: { env: ENV_PLATFORM_DATABASE_DATABASE }
+      mysql_user: { env: ENV_PLATFORM_DATABASE_USERNAME }
+      mysql_password: { env: ENV_PLATFORM_DATABASE_PASSWORD }

@@ -1,0 +1,13 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/engine/emitter/coalesced-events/
+      format: JSON
+      lines: True
+  flatten_event:
+    config:
+      label_field: experiment
+  write_partitioned_dataframe:
+    config:
+      partition_by: experiment
+      output_path: s3://nara-example/engine/emitter/transformed-events

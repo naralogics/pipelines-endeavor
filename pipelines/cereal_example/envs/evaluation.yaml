@@ -1,0 +1,42 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/cereal.csv
+  transform_to_intervals:
+    config:
+      columns:
+        - bin_intervals: [-0.1, 36.18, 49.12, 1000]
+          bin_labels: [1- Low, 2- Medium, 3- High]
+          binned_column: rating
+          output_column: rating_segment
+        - bin_count: 4
+          bin_labels: [ 1- Low, 2- Medium, 3- High, 4- Highest]
+          binned_column: rating
+          output_column: rating_segment_new
+        - bin_count: 4
+          binned_column: sugars
+          output_column: sugars_no_labels
+  profile_data:
+    config:
+      title: "cereal data summary"
+      minimal: true
+    outputs:
+      profile_report:
+        filename: "profile-report.html"
+  evaluate_accuracy:
+    config:
+      expected_label_column: rating_segment
+      actual_label_column: rating_segment_new
+      partition_by: [type]
+  create_heatmap:
+    config:
+      index_name: ['rating_segment']
+    outputs:
+      result:
+        format: html
+        filename: "confusion-matrix.html"
+  create_table:
+    outputs:
+      result:
+        format: html
+        filename: "create-table.html"

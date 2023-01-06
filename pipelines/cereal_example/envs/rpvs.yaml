@@ -1,0 +1,9 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/rpvs.csv
+  write_rpvs:
+    inputs:
+      destination:
+        category_tag: cereal
+        setting_group: default

@@ -1,0 +1,29 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/recommendation-requests.csv
+  query_dataframe:
+    config:
+      select_columns: ["client_node_id"]
+  submit_node_requests:
+    config:
+      category: cereal
+      settinggroup_id: default
+      count: 10
+      include_weight: True
+      label:
+        experiment: cereal_test_01
+      include_grouped_content: True
+      include_grouped_profile: all
+      include_node_profile: all
+  slugify_values:
+    config:
+      columns: [client_node_id]
+  wait_for_experiment_complete:
+    config:
+      file_extension: gz
+      input_bucket: nara-example
+      input_path: engine/emitter/events
+      output_bucket: nara-example
+      output_path: engine/emitter/coalesced-events
+      storage_mode: S3

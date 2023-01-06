@@ -1,0 +1,17 @@
+name: Docker build and push
+on:
+  push:
+    branches: '*'
+jobs:
+  docker:
+    uses: naralogics/github-actions/.github/workflows/docker.yml@main
+    with:
+      github_org: naralogics
+      repo: ${{ github.event.repository.name }}
+      branch: ${{ github.head_ref || github.ref_name }}
+      dockerhub_repo: naralogics
+      dockerfile_location: build/Dockerfile
+    secrets:
+      dockerhub_username: ${{ secrets.DOCKERHUB_USER }}
+      dockerhub_pw: ${{ secrets.DOCKERHUB_PW }}
+      gh_ssh_key: ${{ secrets.GH_SSH_KEY }}

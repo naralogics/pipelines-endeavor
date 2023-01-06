@@ -1,0 +1,16 @@
+﻿property_name,weight,normalized,why_description
+manufacturer,1,0,Matches on <property.display_name>: <value.display_name>
+type,1,0,Matches on <property.display_name>: <value.display_name>
+protein,1,0,Matches on protein: <value.display_name>
+fat,1,0,Matches on fat: <value.display_name>
+sodium,1,0,Matches on sodium: <value.display_name>
+fiber,1,0,Matches on fiber: <value.display_name>
+carbohydrates,1,0,Matches on carbohydrates: <value.display_name>
+sugars,1,0,Matches on sugars: <value.display_name>
+potassium,1,0,Matches on potassium: <value.display_name>
+vitamins,1,0,Matches on vitamins: <value.display_name>
+shelf,1,0,Matches on shelf: <value.display_name>
+weight,1,0,Matches on weight: <value.display_name>
+cups,1,0,Matches on cups: <value.display_name>
+rating_segment,1,0,Matches on <property.display_name>: <value.display_name>
+calories_segment,1,0,Matches on <property.display_name>: <value.display_name>

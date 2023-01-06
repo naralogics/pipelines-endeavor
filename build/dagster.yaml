@@ -1,0 +1,54 @@
+telemetry:
+  enabled: false
+
+run_storage:
+ module: dagster_mysql.run_storage
+ class: MySQLRunStorage
+ config:
+  mysql_db:
+   username: { env: ENV_PLATFORM_DATABASE_USERNAME }
+   password: { env: ENV_PLATFORM_DATABASE_PASSWORD }
+   hostname: { env: ENV_PLATFORM_DATABASE_HOST }
+   port: { env: ENV_PLATFORM_DATABASE_PORT_NUMBER }
+   db_name: dagster
+
+event_log_storage:
+ module: dagster_mysql.event_log
+ class: MySQLEventLogStorage
+ config:
+  mysql_db:
+   username: { env: ENV_PLATFORM_DATABASE_USERNAME }
+   password: { env: ENV_PLATFORM_DATABASE_PASSWORD }
+   hostname: { env: ENV_PLATFORM_DATABASE_HOST }
+   port: { env: ENV_PLATFORM_DATABASE_PORT_NUMBER }
+   db_name: dagster
+
+schedule_storage:
+ module: dagster_mysql.schedule_storage
+ class: MySQLScheduleStorage
+ config:
+  mysql_db:
+   username: { env: ENV_PLATFORM_DATABASE_USERNAME }
+   password: { env: ENV_PLATFORM_DATABASE_PASSWORD }
+   hostname: { env: ENV_PLATFORM_DATABASE_HOST }
+   port: { env: ENV_PLATFORM_DATABASE_PORT_NUMBER }
+   db_name: dagster
+
+compute_logs:
+  module: dagster_aws.s3.compute_log_manager
+  class: S3ComputeLogManager
+  config:
+    bucket: { env: ENV_DAGSTER_LOG_BUCKET }
+    prefix: { env: ENV_DAGSTER_LOG_PREFIX }
+
+local_artifact_storage:
+  module: dagster.core.storage.root
+  class: LocalArtifactStorage
+  config:
+    base_dir: { env: ENV_DAGSTER_LOCAL_ARTIFACT_STORAGE_DIR }
+
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+    max_concurrent_runs: 2

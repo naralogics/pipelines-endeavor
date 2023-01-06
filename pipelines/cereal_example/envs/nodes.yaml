@@ -1,0 +1,33 @@
+solids:
+  read_frames:
+    config:
+      path: s3://nara-example/cereal-data/cereal.csv
+  assign_new_columns:
+    config:
+      columns:
+        client_node_id: name
+  slugify_values:
+    config:
+      columns: [client_node_id]
+  transform_to_intervals:
+    config:
+      columns:
+        - bin_intervals: [-0.1, 36.18, 49.12, 1000]
+          bin_labels: [1- Low, 2- Medium, 3- High]
+          binned_column: rating
+          output_column: rating_segment
+        - quantile_based: True
+          bin_count: 3
+          binned_column: calories
+          output_column: calories_segment
+        - quantile_based: True
+          bin_count: 3
+          binned_column: protein
+          output_column: protein_segment
+  profile_data:
+    config:
+      title: "cereal data summary"
+      minimal: true
+    outputs:
+      profile_report:
+        filename: "profile-report.html"
